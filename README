@@ -1,0 +1,7 @@
+C# application that allows you to choose your wallpaper from the giant image database of Wallbase.cc.
+
+You can set resolution, purity (safe for work and not) and the number of images to see at each request.
+
+For each image, you can set it as background, see it in Wallbase.cc and just save it in your computer.
+
+If you want to get the images from another website, just hack Wallpaper.cs.
