@@ -41,6 +41,8 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.websiteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.style = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.width)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.height)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.thumbs)).BeginInit();
@@ -49,7 +51,7 @@
             // 
             // random
             // 
-            this.random.Location = new System.Drawing.Point(275, 26);
+            this.random.Location = new System.Drawing.Point(354, 27);
             this.random.Name = "random";
             this.random.Size = new System.Drawing.Size(75, 21);
             this.random.TabIndex = 0;
@@ -146,7 +148,7 @@
             this.thumbs.Size = new System.Drawing.Size(54, 20);
             this.thumbs.TabIndex = 9;
             this.thumbs.Value = new decimal(new int[] {
-            1,
+            6,
             0,
             0,
             0});
@@ -173,12 +175,37 @@
             this.openToolStripMenuItem.Text = "Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openImage_Click);
             // 
+            // style
+            // 
+            this.style.FormattingEnabled = true;
+            this.style.Items.AddRange(new object[] {
+            "Fill",
+            "Centered",
+            "Stretched",
+            "Tiled"});
+            this.style.Location = new System.Drawing.Point(275, 27);
+            this.style.Name = "style";
+            this.style.Size = new System.Drawing.Size(73, 21);
+            this.style.TabIndex = 11;
+            this.style.Text = "Fill";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(275, 12);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(65, 13);
+            this.label5.TabIndex = 12;
+            this.label5.Text = "Background";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(385, 72);
+            this.ClientSize = new System.Drawing.Size(448, 72);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.style);
             this.Controls.Add(this.thumbs);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.height);
@@ -214,6 +241,8 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem websiteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
+        private System.Windows.Forms.ComboBox style;
+        private System.Windows.Forms.Label label5;
     }
 }
 

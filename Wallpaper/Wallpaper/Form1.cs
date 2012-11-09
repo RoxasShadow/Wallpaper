@@ -29,13 +29,22 @@ namespace Wallpaper
         private List<PictureBox>    images;
         private PictureBox          selected;
 
+        private void addEvent(Control parentCtrl, KeyEventHandler evnt)
+        {
+            foreach (Control c in parentCtrl.Controls)
+            {
+                c.KeyDown += new KeyEventHandler(evnt);
+                addEvent(c, evnt);
+            }
+        }
+
         public Form1()
         {
             InitializeComponent();
             images            =  new List<PictureBox>();
-            this.KeyPress     += new KeyPressEventHandler(random_Click);
             this.width.Value  =  Screen.PrimaryScreen.Bounds.Width;
             this.height.Value =  Screen.PrimaryScreen.Bounds.Height;
+            addEvent(this, random_KeyPress);
         }
 
         private void clear()
@@ -92,15 +101,41 @@ namespace Wallpaper
         {
             this.Cursor =   Cursors.WaitCursor;
 
-            Uri url     =   new Uri((((PictureBox)sender).Name));
-            Background.Set(url, Background.Style.Fill);
+            Background.Style style;
+            switch (this.style.SelectedText)
+            {
+                case "Fill":
+                    style = Background.Style.Fill;
+                    break;
+                case "Centered":
+                    style = Background.Style.Centered;
+                    break;
+                case "Stretched":
+                    style = Background.Style.Stretched;
+                    break;
+                case "Tiled":
+                    style = Background.Style.Tiled;
+                    break;
+                default:
+                    style = Background.Style.Fill;
+                    break;
+            }
+
+            Uri uri     =   new Uri((((PictureBox)sender).Name));
+            Background.Set(uri, style);
 
             this.Cursor =   Cursors.Default;
         }
 
+        private void random_KeyPress(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Return)
+                random_Click(sender, e);
+        }
+
         private void random_Click(object sender, EventArgs e)
         {
-            this.Size   = new Size(820, 510);
+            this.Size   = new Size(840, 510);
             this.Cursor = Cursors.WaitCursor;
 
             int width   = (int) this.width.Value;
